@@ -1,5 +1,5 @@
 # build runtime image
 FROM microsoft/dotnet:aspnetcore-runtime
 WORKDIR /app
-COPY $(System.ArtifactsDirectory)/kubedotnetcoreapp .
+COPY $artifactsdirectory/kubedotnetcoreapp .
 ENTRYPOINT ["dotnet", "kubedotnetcoreapp.dll"]
