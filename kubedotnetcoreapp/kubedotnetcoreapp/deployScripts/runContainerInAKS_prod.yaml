@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  prod:
+    container_name: kubedotnetcoreapp
+    image: $acrLoginServer/kubedotnetcoreapp:v2
+    restart: always
+    ports:
+      - "8080:80"
