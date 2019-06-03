@@ -1,0 +1,2 @@
+steps:
+  - cmd: freddykcontainerregistry.azurecr.io/kubedotnetcoreapp:v1
