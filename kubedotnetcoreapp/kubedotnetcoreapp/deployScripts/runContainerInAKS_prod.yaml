@@ -1,9 +1,16 @@
-version: '3'
-
-services:
-  prod:
-    container_name: kubedotnetcoreapp
-    image: $acrLoginServer/kubedotnetcoreapp:v2
-    restart: always
-    ports:
-      - "8080:80"
+apiVersion: extensions/v1beta1
+ kind: Deployment
+ metadata:
+   name: kubedotnetcoreapp
+ spec:
+   replicas: 1
+   template:
+     metadata:
+       labels:
+         app: kubedotnetcoreapp
+     spec:
+       containers:
+         - name: kubedotnetcoreapp
+           image: $acrLoginServer/kubedotnetcoreapp:v1
+           ports:
+             - containerPort: 80
