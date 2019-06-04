@@ -20,6 +20,7 @@ kind: Service
 metadata:
   name: kubedotnetcoreapp
 spec:
+  type: LoadBalancer
   ports:
   - port: 80
   selector:
