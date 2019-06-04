@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: kubedotnetcoreapp
-        image: $acrloginserver/kubedotnetcoreapp:v1
+        image: freddykcontainerregistry.azurecr.io/kubedotnetcoreapp:v1
         ports:
         - containerPort: 80
 ---
