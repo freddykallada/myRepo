@@ -19,9 +19,15 @@ apiVersion: v1
 kind: Service
 metadata:
   name: kubedotnetcoreapp
+  labels:
+    app: kubedotnetcoreapp
 spec:
   type: LoadBalancer
   ports:
-  - port: 80
+  - port: 8080
+    targetPort: 80
+    nodePort: 31704
+    protocol: TCP
+    name: http
   selector:
     app: kubedotnetcoreapp

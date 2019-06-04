@@ -1,9 +1,33 @@
-version: '3'
-
-services:
-  prod:
-    container_name: kubedotnetcoreapp
-    image: kubedotnetcoreapp:v2
-    restart: always
-    ports:
-      - "8080:80"
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: kubedotnetcoreapp
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: kubedotnetcoreapp
+    spec:
+      containers:
+      - name: kubedotnetcoreapp
+        image: kubedotnetcoreapp:v2
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubedotnetcoreapp
+  labels:
+    app: kubedotnetcoreapp
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 8080
+    targetPort: 80
+    nodePort: 31704
+    protocol: TCP
+    name: http
+  selector:
+    app: kubedotnetcoreapp
