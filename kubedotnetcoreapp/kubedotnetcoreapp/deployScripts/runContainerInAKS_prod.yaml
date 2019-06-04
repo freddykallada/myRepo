@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
   name: kubedotnetcoreapp
@@ -14,3 +14,13 @@ spec:
         image: $acrLoginServer/kubedotnetcoreapp:v1
         ports:
         - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubedotnetcoreapp
+spec:
+  ports:
+  - port: 80
+  selector:
+    app: kubedotnetcoreapp
