@@ -11,7 +11,7 @@ spec:
     spec:
       containers:
       - name: kubedotnetcoreapp
-        image: $acrLoginServer/kubedotnetcoreapp:v1
+        image: $acrloginserver/kubedotnetcoreapp:v1
         ports:
         - containerPort: 80
 ---
