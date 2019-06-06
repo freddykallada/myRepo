@@ -1,7 +1,9 @@
 FROM microsoft/dotnet:sdk AS build-env
 WORKDIR /app
 RUN echo $(pwd)
-COPY /home/vsts/work/1/a ./out
+COPY . ./out
+RUN echo $(pwd)
+RUN echo $(ls)
 
 # build runtime image
 FROM mcr.microsoft.com/dotnet/core/aspnet:2.2
